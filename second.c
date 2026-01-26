@@ -11,15 +11,18 @@ double divide(double* sum, double denom);
 
 int main()
 {
-    double num = 0.0;
+    double num;
+    double sum = 0.0; // removes garabage values
     double denom = 5;
     for (int i = 1; i < 6; i++)
     {
         printf("Enter a number(%i): ", i);
         scanf("%lf", &num);
-        num += num; // Summation
-    }   
-    printf("Total: %f", num); // pass by value because printf doesnt modify the value
+        sum += num; // Summation
+    }
+    double result = divide(&sum, denom);
+    printf("Total: %f\n", sum); // pass by value because printf doesnt modify the value
+    printf("Results of divide function: %f", result);
     return 0;
  }
 
