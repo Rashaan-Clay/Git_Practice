@@ -29,7 +29,8 @@ int main()
  * @param double function wtih a pointer to a double variable
  * @return void function with no return
 */
-double divide(double sum, double denom)
+double divide(double sum, double denom) 
 {
-    return sum = sum / denom;
+    return sum / denom; // No pointers needed because we're only returning the value created by the divide function. 
+                        // No updating the value of sum is necessary
 }
