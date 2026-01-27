@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Function prototype
-double divide(double* sum, double denom);
+double divide(double sum, double denom);
 
 /**
  * @brief This will loop 5 times asking the user for 5 distinct values then call the divide function to then print the ouput.
@@ -13,16 +13,14 @@ int main()
 {
     double num;
     double sum = 0.0; // removes garabage values
-    double denom = 5;
     for (int i = 1; i < 6; i++)
     {
         printf("Enter a number(%i): ", i);
         scanf("%lf", &num);
         sum += num; // Summation
     }
-    double result = divide(&sum, denom);
-    printf("Total: %f\n", sum); // pass by value because printf doesnt modify the value
-    printf("Results of divide function: %f", result);
+    double result = divide(sum, 5);
+    printf("Results of divide function: %.1f", result);
     return 0;
  }
 
@@ -31,7 +29,7 @@ int main()
  * @param double function wtih a pointer to a double variable
  * @return void function with no return
 */
-double divide(double* sum, double denom)
+double divide(double sum, double denom)
 {
-    return *sum = *sum / denom;
+    return sum = sum / denom;
 }
