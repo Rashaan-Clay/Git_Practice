@@ -3,28 +3,26 @@
 
 int main()
 {
-    int num;
+    int value;
     printf("Enter a positive number: ");
-    scanf("%i", &num);
+    scanf("%i", &value);
 
-    print_factors(num, 1);
+    print_factors(value, value);
 
     return 0;
 
 }
 
-void print_factors(int num, int i) // Needed to define an int i as an iterator since recursive
+void print_factors(int num, int i)  // (4)
 {
-    if (i > num)
+    if (i <= 0)
     {
         return;
     }
-
-    else if (num % i == 0 && num != i)
+    else if (num % i == 0 && num != i) // 4 mod 4 == 0, 4 mod 3, 4 mod 2 == 0
     {
         printf("%d ", i);
     }
-    
-    // no return function here because its recursive
-    print_factors(num, ++i);
+
+    print_factors(num, i - 1);
 }
