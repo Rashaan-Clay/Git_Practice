@@ -13,7 +13,7 @@ int main(void)
 {
     char input[100];
     fgets(input, 100, stdin);
-    size_t n = strnlen(input, 100);
+    size_t n = strnlen(input, 100); // size_t and int works here. size_t is only positive integers.
 
     for (int i = 0; i < n; i++)
     {
