@@ -33,7 +33,7 @@
  * 
  *       * The last line of code will dereference aPtr and gives us the value that it was once pointing at and completing the opeartion given.
  * 
- *       You dereference pointers to change the value in memory
+ *       You dereference pointers to change the value in memory. THIS IS THE DEREFERENCING OPERATOR *
  *       There is such thing as pointing at nothing or NULL. If you have not already allocated memory and need to initialize a pointer; you can declare it as a NULL value: int* ptr = NULL;
  *       But you cannot dereference a null pointer. 
  *       
@@ -44,7 +44,7 @@
  * 
  *                   void change_value(int* aPtr, int* bPtr) <-- Passing through memory address of variables in the calling function.
  *               
- *             In these cases, if the called function changes value, calling function sees the new variable since it's pointing to a memory location.
+ *                   In these cases, if the called function changes value, calling function sees the new variable since it's pointing to a memory location.
  *             
  *         
  */

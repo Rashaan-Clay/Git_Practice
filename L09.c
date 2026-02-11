@@ -12,25 +12,20 @@
 
 int main()
 {
-    int width, length, area;
-    int* Pw = &width;
-    int* Pl = &length;
+    int width, length, area; // Initialize some varaibles
+    int* Pw = &width; 
+    int* Pl = &length; // Intiliaze pointers to the addresses of those variables
     int* Pa = &area;
 
     printf("Enter the width of the room: ");
-    scanf("%d", &width);
+    scanf("%d", Pw); // you have now stored these values in memory and you can view them just as simple as passing-by-value
 
     printf("Enter the lenghth of the room: ");
-    scanf("%d", &length);
+    scanf("%d", Pl);
 
-    printf("Enter the area of the room: ");
-    scanf("%d", &area); // you have now stored these values in memory and you can view them just as simple as passing-by-value
+    *Pa = *Pl * *Pl; // Dereference your pointers and multiply the pointer-at values to together and store it.
 
+    printf("area: %d\nlength: %d\nwidth: %d", *Pa, *Pl, *Pw); // correct placeholder for pointers is %d
 
-    printf("%i\n", width);
-    printf("%i\n", length);
-    printf("%i\n", area);
-
-
-
+    return 0;
 }
