@@ -20,8 +20,33 @@
  *      Character | char | 1 byte | 0 - 255, normally ASCII range
  *      Boolean | bool | 1 byte | 0 - 1
  * 
+ * Pointers: 
+ *       Pointers are variables that store memeory adresses
+ *       They metaphorically point at memory locations you'd want to acess and modify
+ *       You declare a point by putting a * before the name of each pointer, and must have the same variable type as they're pointing to
+ *       If a variable already exists, you can reference its adress by using the & operator.
+ *       You're usually not worried about the pointer itself, just the value that it points to. 
+ *          
+ *          Ex: int a = 5;
+ *              int* aPtr = &a;
+ *              int b = *aPtr + 3;
  * 
- *  
+ *       * The last line of code will dereference aPtr and gives us the value that it was once pointing at and completing the opeartion given.
+ * 
+ *       You dereference pointers to change the value in memory
+ *       There is such thing as pointing at nothing or NULL. If you have not already allocated memory and need to initialize a pointer; you can declare it as a NULL value: int* ptr = NULL;
+ *       But you cannot dereference a null pointer. 
+ *       
+ *       There are two ways to pass arguments to a function: Pass-by-value & Pass-by-reference
+ * 
+ *       Pass-by-value:
+ *                   void change_value(int a, int b) <-- copy of variable's value is made and provided to called function
+ * 
+ *                   void change_value(int* aPtr, int* bPtr) <-- Passing through memory address of variables in the calling function.
+ *               
+ *             In these cases, if the called function changes value, calling function sees the new variable since it's pointing to a memory location.
+ *             
+ *         
  */
 
  int main()
