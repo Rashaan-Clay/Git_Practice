@@ -23,6 +23,7 @@
 #include <math.h>
 int main(void)
 {
+   run_tests();
    // Copied from main to ensure that values were correct
    // Initial enrollment
    const int initial_enrollment = 25994;

@@ -9,7 +9,7 @@
  *      (5): A linker takes the code and literally links it with any external libraries that are included within the files. So the standard C library is one. The linker also produces an executable file for the corresponding OS and CPU arch.
  *      (6): Now the code is ready to run and the CPU can then execute the program once loaded into memory.
  * 
- * Variable Types: 
+ * VARTYPES: 
  *      Integer | int | 4 bytes | range is from +-2million
  *      Unsigned | unsigned int| 4 bytes and from 0 to 4mil
  *      Long | long | 4 or 8 bytes depending on windows arch| and varies by size
@@ -20,7 +20,7 @@
  *      Character | char | 1 byte | 0 - 255, normally ASCII range
  *      Boolean | bool | 1 byte | 0 - 1
  * 
- * Pointers 1: 
+ * POINTER: 
  *       Pointers are variables that store memeory adresses
  *       They metaphorically point at memory locations you'd want to acess and modify
  *       You declare a point by putting a * before the name of each pointer, and must have the same variable type as they're pointing to
@@ -50,7 +50,7 @@
  *       Static lifetime is when the variable is created, used, then destroyed. Think about making a global varaible and a function variable, one is only avaiable within its function and the other is avaiable all throughout the program.
  *       Dynamic lifetime is allocated and deallocated memory. malloc() and free(): (PROGRAMMER MUST FREE MEMORY BEFORE TERMINATION)  
  *           
- * Pointers 2:
+ * POINTERS:
  *    First thing covered are void poitners. These are NOT defined pointers that do not have a specified type, usually when you are unsure of what type of value it will store.
  *    This is a method of dynamically allocating memory and is called by: void*
  *    Void pointers can be a bit tricky to use and you shoudl only use them when necessary. Pointer arithmetic is not supported with these and you the type must be casted BEFORE you can dereference them
@@ -76,6 +76,46 @@
  *    realloc(*memoryPtr, size); Pointer to currently allocated memory and the number of bytes after resizinig. returns void pointers
  *    
  *    You should avoid dynamically allocating memory WHENEVER possible, only used when you do not know the size requirements in advanced. Even in such cases, its much safer to just allocated a large fixed amount.
+ * 
+ * 
+ * 
+ *    STRUCTS:
+ *  
+ *    Commonly used for data structures like linked lists or organizing data read from/written files
+ *    structs are used to contain sets of related data; typically for organizing data read from/written to files.
+ *    Difference between classes and structs:
+ *       
+ *    structs cannot contain functions/methods
+ *       Everything is public
+ *       cannot be inherited from.
+ * 
+ *    You add structs to the top of your file, below preprocessor derictives.
+ * 
+ *    Without initializing a struct:
+ *       Elements within local scope will maintain the values that were alreadying stored in memory.
+ *       
+ *       In file-scope, pointers will be set to NULL, variables are 0, and an array will be set to all 0's.
+ * 
+ *  
+ *    Using typedef is an alias keyword, and seems to only save typing and initializing for struct type. If used, you may not need to create a tag for your struct.
+ *    
+ *    When inside a struct, C cannot infer the size of an array simply off its initializer, thus does not allocate memory. So you could used a FIXED size array within a struct,
+ *    but dynamically, arrary must be initilized last within the struct and contain braces, and use sizeof to determine the amount of memory needed for the struct but you must find the memory needed
+ *    for the array on your own.
+ *    
+ *    Same thing applies for array initialized with pointers.
+ * 
+ *    To create another copy of your struct simply, initialize your struct to another variable. EX: struct employee bmp2 = bmp;
+ *    
+ *    You can pass structs byh value & reference:
+ *       by value: a copy of the struct is created when passed in function, so changed made in the function call dont change calling functions
+ *                unless using a pointer to do so.
+ * 
+ *       By reference: The address of the struct is provided to the call, and the reference in the call:
+ *       EX: pass_by_ref(struct employee*); --> pass_by_ref(&bmp);
+ * 
+ *    lastly, sizeof can be used to measure the size of your struct in bytes. Make sure to use size_t and %zu when printing size.
+ *                
  */
 
  int main()
@@ -85,4 +125,3 @@
  }
 
 
- 
